@@ -1,0 +1,24 @@
+{
+  "name": "gez-area",
+  "version": "1.0.0",
+  "description": "a area picker",
+  "scripts": {
+    "release": "standard-version"
+  },
+  "main": "./packages/index.js",
+  "homepage": "https://github.com/Hb-zzZ/gez-area",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hb-zzZ/gez-area.git"
+  },
+  "keywords": [
+    "area picker",
+    "address picker",
+    "picker"
+  ],
+  "author": "Hb-zzZ <Hb-email@foxmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "standard-version": "^9.3.0"
+  }
+}
