@@ -1,6 +1,6 @@
 {
   "name": "gez-area",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a area picker",
   "scripts": {
     "release": "standard-version"
