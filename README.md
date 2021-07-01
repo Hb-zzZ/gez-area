@@ -75,8 +75,8 @@ Vue.use(GezArea, {
   },
   methods: {
         getAreaData(){
-           this.$refs['gezArea'].validate().then(({areaData})=> {
-                console.log(areaData)
+           this.$refs['gezArea'].validate().then((data)=> {
+                console.log(data)
            })
         }
   }
@@ -88,7 +88,7 @@ Vue.use(GezArea, {
 
 ### areaData(Object)
 
-### [rowAttrs(Object)][https://element.eleme.cn/#/zh-CN/component/layout#row-attributes]
+### rowAttrs(Object)[https://element.eleme.cn/#/zh-CN/component/layout#row-attributes]
 
 ```
 {

@@ -28,7 +28,6 @@
             />
           </el-select>
         </el-form-item>
-        {{ add }}
       </el-col>
     </el-row>
   </el-form>
@@ -45,37 +44,37 @@ export default {
       type: Object,
       default() {
         return {}
-      },
+      }
     },
     formAttrs: {
       type: Object,
       default() {
         return {}
-      },
+      }
     },
     rowAttrs: {
       type: Object,
       default() {
         return {
-          gutter: 15,
+          gutter: 15
         }
-      },
+      }
     },
     areaList: {
       type: Array,
       default() {
         return []
-      },
+      }
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 配置
     config: {
       type: Object,
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
@@ -85,7 +84,7 @@ export default {
         city: '',
         area: '',
         street: '',
-        community: '',
+        community: ''
       },
       // 当前地址对应的options,
       addOptions: {
@@ -93,10 +92,10 @@ export default {
         city: 'loading',
         area: 'loading',
         street: 'loading',
-        community: 'loading',
+        community: 'loading'
       },
       // 地址code options缓存
-      addStore: {},
+      addStore: {}
     }
   },
   computed: {
@@ -136,7 +135,7 @@ export default {
           ...item,
           options,
           optionsValueKey: this.requestValueKey,
-          optionsLabelKey: this.requestLabelKey,
+          optionsLabelKey: this.requestLabelKey
         }
 
         if (rules) {
@@ -155,7 +154,7 @@ export default {
     // 请求结果
     requestAddress() {
       return this.realConfig.request
-    },
+    }
   },
   watch: {
     addressValue: {
@@ -168,8 +167,8 @@ export default {
             this.selected[type] = addressValue[type]
           }
         }
-      },
-    },
+      }
+    }
   },
   mounted() {
     this.updateAddOptions()
@@ -275,7 +274,11 @@ export default {
       return new Promise((resolve, reject) => {
         this.$refs['address'].validate((result, errMsg) => {
           if (result) {
-            resolve({ result, areaData: this.areaData })
+            resolve({
+              result,
+              areaData: this.areaData,
+              wholeData: this.realAddList
+            })
           } else {
             reject({ result, errMsg })
           }
@@ -287,8 +290,8 @@ export default {
       return new Promise((resolve) => {
         resolve(this.$refs['address'].clearValidate(data))
       })
-    },
-  },
+    }
+  }
 }
 </script>
 
