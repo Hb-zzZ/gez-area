@@ -124,7 +124,10 @@ export default {
       return this.areaList.reduce((list, item) => {
         let options = this.addOptions[item.type]
 
-        if (options !== 'loading' && options.length === 0) {
+        if (
+          (options !== 'loading' && options.length === 0) ||
+          !this.isCanSelect(item)
+        ) {
           // 如果获取不到则把后面都置为不需要填写
           rules = [{ required: false }]
         } else {
