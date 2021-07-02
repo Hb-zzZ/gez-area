@@ -3,7 +3,7 @@
     ref="address"
     :disabled="disabled"
     :model="areaData"
-    class="gez-area-wrap"
+    class="gez-area"
     v-bind="formAttrs"
   >
     <el-row v-bind="rowAttrs">
