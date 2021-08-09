@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "git:commit": "git cz",
-    "release": "standard-version"
+    "release": "standard-version && git push --follow-tags origin master"
   },
   "main": "./packages/index.js",
   "files": [

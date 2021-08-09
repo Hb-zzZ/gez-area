@@ -1,5 +1,8 @@
 # gez-area
 
+[![npm](https://img.shields.io/npm/v/ptm.svg)](https://www.npmjs.com/package/gez-area) ![GitHub repo size](https://img.shields.io/github/repo-size/Hb-zzZ/gez-area) ![GitHub top language](https://img.shields.io/github/languages/top/Hb-zzZ/gez-area) ![NPM](https://img.shields.io/npm/l/gez-area)
+
+
 ## Install
 
 ```

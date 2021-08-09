@@ -21,9 +21,7 @@
             @change="(val) => onChange(val, add)"
           >
             <el-option
-              v-for="(opt, optIndex) in Array.isArray(add.options)
-                ? add.options
-                : []"
+              v-for="(opt, optIndex) in add.options"
               :key="optIndex"
               :value="opt[requestValueKey]"
               :label="opt[requestLabelKey]"
@@ -134,7 +132,7 @@ export default {
           rules = item.rules || []
         }
 
-        options = options || []
+        options = Array.isArray(options) ? options : []
 
         const desc = {
           ...item,
