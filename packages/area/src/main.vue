@@ -170,16 +170,14 @@ export default {
             this.selected[type] = addressValue[type]
           }
         }
+        // todo:待优化，加入对比
+        this.updateAddOptions()
       }
     }
-  },
-  mounted() {
-    this.updateAddOptions()
   },
   methods: {
     onChange(val, item) {
       this.changeAreaData(val, item.model)
-      this.updateAddOptions()
       this.autoResetFields(item)
       this.resetLowData(item)
     },
