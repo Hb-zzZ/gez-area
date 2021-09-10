@@ -218,25 +218,39 @@ export default {
       })
     },
     updateAddOptions() {
-      this.realAddList.forEach((add) => {
-        const { type } = add
+      this.realAddList.forEach(async (add) => {
+        let { type, showCode } = add
         const parentCode = this.isCanSelect(add)
 
         this.$set(this.addOptions, type, 'loading')
 
         if (parentCode) {
           // 可以点击的加载下拉选项
-          if (this.addStore[parentCode]) {
-            // 获取缓存数据
-            this.$set(this.addOptions, type, this.addStore[parentCode])
-          } else {
-            Promise.resolve(this.requestAddress({ type, parentCode })).then(
-              (res) => {
-                this.addStore[parentCode] = res
-                this.$set(this.addOptions, type, this.addStore[parentCode])
-              }
-            )
+          if (!this.addStore[parentCode]) {
+            await Promise.resolve(
+              this.requestAddress({ type, parentCode })
+            ).then((res) => {
+              this.addStore[parentCode] = res
+            })
           }
+
+          let showStore = this.addStore[parentCode]
+
+          if (showCode) {
+            if (!Array.isArray(showCode)) {
+              showCode = [showCode]
+            }
+
+            showStore = showStore.filter((item) => {
+              const value = item[this.requestValueKey]
+
+              if (showCode.includes(value)) {
+                return true
+              }
+            })
+          }
+
+          this.$set(this.addOptions, type, showStore)
         } else {
           // 不可以下拉则重置为空
           this.$set(this.addOptions, type, [])

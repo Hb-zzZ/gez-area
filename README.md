@@ -112,6 +112,8 @@ Vue.use(GezArea, {
         label: '市',
         // when the first level is not province
         parentCode: '44xxxxx',
+        // choose to show(String or Array)
+        showCode: '44xxxx', // or ['44xxxx', '43xxxx']
         // validate rules(Array)
         rules: [{ required: true, message: 'required' }]
 },

@@ -27,6 +27,12 @@ Vue.use(packages, {
           id: '440300000000',
           name: '深圳市',
           type: 'city'
+        },
+        {
+          code: '442300000000',
+          id: '442300000000',
+          name: '佛山市',
+          type: 'city'
         }
       ]
     }

@@ -13,15 +13,11 @@ export default {
       areaData: {},
       areaList: [
         {
-          model: 'province',
-          type: 'province',
-          label: '省',
-          rules: [{ required: true, message: '必填' }]
-        },
-        {
           model: 'city',
           type: 'city',
           label: '市',
+          parentCode: '440300000000',
+          showCode: '442300000000',
           rules: [{ required: true, message: '必填' }]
         },
         {
