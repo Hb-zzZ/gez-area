@@ -180,7 +180,8 @@ export default {
       this.changeAreaData(val, item.model)
       this.autoResetFields(item)
       this.resetLowData(item)
-      this.emitChange(val, item)
+
+      this.$nextTick(() => this.emitChange(val, item))
     },
     emitChange(val, item) {
       const data = {
