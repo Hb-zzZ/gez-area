@@ -180,6 +180,17 @@ export default {
       this.changeAreaData(val, item.model)
       this.autoResetFields(item)
       this.resetLowData(item)
+      this.emitChange(val, item)
+    },
+    emitChange(val, item) {
+      const data = {
+        areaData: this.areaData,
+        wholeData: this.realAddList,
+        value: val,
+        desc: item
+      }
+
+      this.$emit('change', data)
     },
     changeAreaData(value, model) {
       if (model) {

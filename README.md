@@ -143,6 +143,12 @@ same as global config, the weight is higher
 
 ```
 
+## event
+
+### change
+
+when areaData change
+
 ## Thanks
 
 If you find this project useful, you can give me a [[star](https://github.com/Hb-zzZ/gez-area)].
