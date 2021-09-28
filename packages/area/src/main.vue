@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import { throttle } from 'throttle-debounce'
 // type排列顺序
 const ADDRESS_ORDER = ['province', 'city', 'area', 'street', 'community']
 
@@ -157,6 +158,12 @@ export default {
     // 请求结果
     requestAddress() {
       return this.realConfig.request
+    },
+    triggerChangeParmas() {
+      return {
+        areaData: this.addressValue,
+        wholeData: this.realAddList
+      }
     }
   },
   watch: {
@@ -173,25 +180,37 @@ export default {
         // todo:待优化，加入对比
         this.updateAddOptions()
       }
+    },
+    triggerChangeParmas: {
+      immediate: true,
+      deep: true,
+      handler() {
+        // toda 待优化
+        this.triggerChange()
+      }
     }
   },
   methods: {
+    triggerChange() {
+      if (!this.triggerChangeTimer) {
+        this.triggerChangeTimer = throttle(60, () => {
+          const { wholeData } = this.triggerChangeParmas
+          const isDone = wholeData.every(
+            (item) => this.addOptionsStaus[item.type] !== 'loading'
+          )
+
+          if (isDone) {
+            this.$emit('change', this.triggerChangeParmas)
+          }
+        })
+      }
+
+      this.triggerChangeTimer()
+    },
     onChange(val, item) {
       this.changeAreaData(val, item.model)
       this.autoResetFields(item)
       this.resetLowData(item)
-
-      this.$nextTick(() => this.emitChange(val, item))
-    },
-    emitChange(val, item) {
-      const data = {
-        areaData: this.areaData,
-        wholeData: this.realAddList,
-        value: val,
-        desc: item
-      }
-
-      this.$emit('change', data)
     },
     changeAreaData(value, model) {
       if (model) {

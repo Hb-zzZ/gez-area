@@ -9842,6 +9842,11 @@ throttle-debounce@^1.0.1:
   resolved "http://47.112.146.117:9666/throttle-debounce/-/throttle-debounce-1.1.0.tgz#51853da37be68a155cb6e827b3514a3c422e89cd"
   integrity sha1-UYU9o3vmihVctugns1FKPEIuic0=
 
+throttle-debounce@^3.0.1:
+  version "3.0.1"
+  resolved "http://47.112.146.117:9666/throttle-debounce/-/throttle-debounce-3.0.1.tgz#32f94d84dfa894f786c9a1f290e7a645b6a19abb"
+  integrity sha1-MvlNhN+olPeGyaHykOemRbahmrs=
+
 through2@^2.0.0:
   version "2.0.5"
   resolved "http://47.112.146.117:9666/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
