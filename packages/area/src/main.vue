@@ -196,7 +196,7 @@ export default {
         this.triggerChangeTimer = throttle(60, () => {
           const { wholeData } = this.triggerChangeParmas
           const isDone = wholeData.every(
-            (item) => this.addOptionsStaus[item.type] !== 'loading'
+            (item) => this.addOptions[item.type] !== 'loading'
           )
 
           if (isDone) {
