@@ -115,7 +115,9 @@ Vue.use(GezArea, {
         // choose to show(String or Array)
         showCode: '44xxxx', // or ['44xxxx', '43xxxx']
         // validate rules(Array)
-        rules: [{ required: true, message: 'required' }]
+        rules: [{ required: true, message: 'required' }],
+        // https://element.eleme.cn/#/zh-CN/component/select#select-attributes
+        attrs: {}
 },
 ...
 ]

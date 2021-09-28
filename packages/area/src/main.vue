@@ -18,6 +18,7 @@
             :disabled="getSelectDisabled(add)"
             placeholder="请选择"
             v-model="selected[add.type]"
+            v-bind="add.attrs"
             @change="(val) => onChange(val, add)"
           >
             <el-option
