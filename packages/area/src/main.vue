@@ -97,7 +97,9 @@ export default {
         community: 'loading'
       },
       // 地址code options缓存
-      addStore: {}
+      addStore: {},
+      // 值是否改变，等待options加载完毕后抛出change
+      changeAwait: false
     }
   },
   computed: {
@@ -162,7 +164,6 @@ export default {
     },
     triggerChangeParmas() {
       return {
-        areaData: this.addressValue,
         wholeData: this.realAddList
       }
     }
@@ -186,7 +187,6 @@ export default {
       immediate: true,
       deep: true,
       handler() {
-        // toda 待优化
         this.triggerChange()
       }
     }
@@ -195,13 +195,15 @@ export default {
     triggerChange() {
       if (!this.triggerChangeTimer) {
         this.triggerChangeTimer = throttle(60, () => {
-          const { wholeData } = this.triggerChangeParmas
+          const wholeData = this.realAddList
           const isDone = wholeData.every(
             (item) => this.addOptions[item.type] !== 'loading'
           )
 
-          if (isDone) {
-            this.$emit('change', this.triggerChangeParmas)
+          if (isDone && this.changeAwait) {
+            this.changeAwait = false
+            const areaData = this.addressValue
+            this.$emit('change', { wholeData, areaData })
           }
         })
       }
@@ -212,6 +214,8 @@ export default {
       this.changeAreaData(val, item.model)
       this.autoResetFields(item)
       this.resetLowData(item)
+      this.changeAwait = true
+      this.triggerChange()
     },
     changeAreaData(value, model) {
       if (model) {
