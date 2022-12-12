@@ -1,6 +1,6 @@
 {
   "name": "gez-area",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "a area picker",
   "scripts": {
     "serve": "vue-cli-service serve",
