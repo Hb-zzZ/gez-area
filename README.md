@@ -1,7 +1,6 @@
 # gez-area
 
-[![npm](https://img.shields.io/npm/v/ptm.svg)](https://www.npmjs.com/package/gez-area) ![GitHub repo size](https://img.shields.io/github/repo-size/Hb-zzZ/gez-area) ![GitHub top language](https://img.shields.io/github/languages/top/Hb-zzZ/gez-area) ![NPM](https://img.shields.io/npm/l/gez-area)
-
+![GitHub repo size](https://img.shields.io/github/repo-size/Hb-zzZ/gez-area) ![GitHub top language](https://img.shields.io/github/languages/top/Hb-zzZ/gez-area)
 
 ## Install
 
@@ -150,14 +149,6 @@ same as global config, the weight is higher
 ### change
 
 when areaData change
-
-## Thanks
-
-If you find this project useful, you can give me a [[star](https://github.com/Hb-zzZ/gez-area)].
-
-## LICENSE
-
-MIT
 
 ## ChangeLog
 
