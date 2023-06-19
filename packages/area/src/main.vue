@@ -348,7 +348,7 @@ export default {
 
 <style lang="scss" scoped>
 .gez-area-wrap {
-  /deep/ {
+  ::v-deep {
     .el-form-item__content {
       margin-left: 0px;
     }

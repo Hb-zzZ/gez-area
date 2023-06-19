@@ -83,7 +83,7 @@ body {
     margin-top: 20px;
   }
 
-  /deep/ {
+  ::v-deep {
     .el-form-item__label {
       color: white;
     }
